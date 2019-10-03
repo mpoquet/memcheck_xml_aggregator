@@ -10,7 +10,16 @@ let
   self = rec {
     dev_shell = pkgs.mkShell {
       name = "dev-shell";
-      buildInputs = [python pythonPackages.pylint pythonPackages.ipython];
+      buildInputs = [
+        python
+        pythonPackages.ipython
+        pythonPackages.pylint
+        pythonPackages.pytest
+        pythonPackages.pytestcov
+        pythonPackages.setuptools
+        pythonPackages.wheel
+        pythonPackages.pip
+      ];
     };
   };
 in
