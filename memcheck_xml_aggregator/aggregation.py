@@ -66,3 +66,8 @@ class Aggregation:
         else:
             return False
 
+    def __ne__(self, other):
+        if isinstance(other, Aggregation):
+            return self.__dict__ != other.__dict__
+        else:
+            return True
