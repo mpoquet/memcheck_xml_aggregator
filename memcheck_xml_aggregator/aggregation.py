@@ -3,11 +3,12 @@ Aggregate information from Valgrind's Memcheck XML output.
 """
 import json
 import xml.etree.ElementTree as ET
+from copy import deepcopy
 
 class Aggregation:
     """An aggregation of one or several Memcheck executions."""
 
-    def __init__(self):
+    def __init__(self, attrs=None):
         self.nb_errors = 0
         self.nb_invalid_frees = 0
         self.nb_invalid_jumps = 0
@@ -17,6 +18,10 @@ class Aggregation:
         self.nb_leaked_bytes = 0
         self.nb_mismatched_frees = 0
         self.nb_uninit_uses = 0
+
+        if attrs is not None:
+            for var in attrs:
+                setattr(self, var, attrs[var])
 
     @staticmethod
     def parse(root):
@@ -71,3 +76,11 @@ class Aggregation:
             return self.__dict__ != other.__dict__
         else:
             return True
+
+    def __add__(self, other):
+        if not isinstance(other, Aggregation):
+            raise ValueError("Cannot add {} to Aggregation".format(type(other)))
+        members = deepcopy(self.__dict__)
+        for var in members:
+            members[var] += other.__dict__[var]
+        return Aggregation(attrs=members)
