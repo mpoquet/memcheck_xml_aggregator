@@ -1,0 +1,11 @@
+language: python
+
+python:
+  - "3.7"
+  - "nightly"
+
+install:
+  - pip install -r requirements_test.txt
+
+script:
+  - python -m pytest
