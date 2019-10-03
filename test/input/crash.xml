@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+
+<valgrindoutput>
+
+<protocolversion>4</protocolversion>
+<protocoltool>memcheck</protocoltool>
+
+<preamble>
+  <line>Memcheck, a memory error detector</line>
+  <line>Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.</line>
+  <line>Using Valgrind-3.15.0 and LibVEX; rerun with -h for copyright info</line>
+  <line>Command: ./errors crash</line>
+</preamble>
+
+<pid>6748</pid>
+<ppid>6735</ppid>
+<tool>memcheck</tool>
+
+<args>
+  <vargv>
+    <exe>/nix/store/r7hq9l4pqs7jym03pavn306pid1kzgqv-valgrind-3.15.0/bin/valgrind</exe>
+    <arg>--leak-check=full</arg>
+    <arg>--xml=yes</arg>
+    <arg>--xml-file=crash.xml</arg>
+  </vargv>
+  <argv>
+    <exe>./errors</exe>
+    <arg>crash</arg>
+  </argv>
+</args>
+
+<status>
+  <state>RUNNING</state>
+  <time>00:00:00:00.016 </time>
+</status>
+
+<error>
+  <unique>0x0</unique>
+  <tid>1</tid>
+  <kind>InvalidRead</kind>
+  <what>Invalid read of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x40128C</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4f45d98 is 0 bytes after a block of size 40 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483479B</ip>
+      <obj>/nix/store/r7hq9l4pqs7jym03pavn306pid1kzgqv-valgrind-3.15.0/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x401272</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x1</unique>
+  <tid>1</tid>
+  <kind>InvalidWrite</kind>
+  <what>Invalid write of size 4</what>
+  <stack>
+    <frame>
+      <ip>0x40128F</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4f45d6c is 4 bytes before a block of size 40 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483479B</ip>
+      <obj>/nix/store/r7hq9l4pqs7jym03pavn306pid1kzgqv-valgrind-3.15.0/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x401272</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x2</unique>
+  <tid>1</tid>
+  <kind>InvalidFree</kind>
+  <what>Invalid free() / delete / delete[] / realloc()</what>
+  <stack>
+    <frame>
+      <ip>0x4835948</ip>
+      <obj>/nix/store/r7hq9l4pqs7jym03pavn306pid1kzgqv-valgrind-3.15.0/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x4012A3</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4f45d80 is 16 bytes inside a block of size 40 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x483479B</ip>
+      <obj>/nix/store/r7hq9l4pqs7jym03pavn306pid1kzgqv-valgrind-3.15.0/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>malloc</fn>
+    </frame>
+    <frame>
+      <ip>0x401272</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x3</unique>
+  <tid>1</tid>
+  <kind>UninitValue</kind>
+  <what>Use of uninitialised value of size 8</what>
+  <stack>
+    <frame>
+      <ip>0x4012CC</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x4</unique>
+  <tid>1</tid>
+  <kind>UninitCondition</kind>
+  <what>Conditional jump or move depends on uninitialised value(s)</what>
+  <stack>
+    <frame>
+      <ip>0x4012D9</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x5</unique>
+  <tid>1</tid>
+  <kind>MismatchedFree</kind>
+  <what>Mismatched free() / delete / delete []</what>
+  <stack>
+    <frame>
+      <ip>0x4835948</ip>
+      <obj>/nix/store/r7hq9l4pqs7jym03pavn306pid1kzgqv-valgrind-3.15.0/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>free</fn>
+    </frame>
+    <frame>
+      <ip>0x40131A</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x4f45de0 is 0 bytes inside a block of size 8 alloc'd</auxwhat>
+  <stack>
+    <frame>
+      <ip>0x48354E7</ip>
+      <obj>/nix/store/r7hq9l4pqs7jym03pavn306pid1kzgqv-valgrind-3.15.0/lib/valgrind/vgpreload_memcheck-amd64-linux.so</obj>
+      <fn>operator new[](unsigned long)</fn>
+    </frame>
+    <frame>
+      <ip>0x401304</ip>
+      <obj>/tmp/errors/errors</obj>
+      <fn>main</fn>
+    </frame>
+  </stack>
+</error>
+
+<error>
+  <unique>0x6</unique>
+  <tid>1</tid>
+  <kind>InvalidJump</kind>
+  <what>Jump to the invalid address stated on the next line</what>
+  <stack>
+    <frame>
+      <ip>0x0</ip>
+    </frame>
+    <frame>
+      <ip>0x4D9DB8D</ip>
+      <obj>/nix/store/iykxb0bmfjmi7s53kfg6pjbfpd8jmza6-glibc-2.27/lib/libc-2.27.so</obj>
+      <fn>(below main)</fn>
+    </frame>
+  </stack>
+  <auxwhat>Address 0x0 is not stack'd, malloc'd or (recently) free'd</auxwhat>
+</error>
+
+
+<status>
+  <state>FINISHED</state>
+  <time>00:00:00:00.272 </time>
+</status>
+
+<errorcounts>
+  <pair>
+    <count>1</count>
+    <unique>0x6</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x5</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x4</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x3</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x2</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x1</unique>
+  </pair>
+  <pair>
+    <count>1</count>
+    <unique>0x0</unique>
+  </pair>
+</errorcounts>
+
+<suppcounts>
+</suppcounts>
+
+</valgrindoutput>
+
