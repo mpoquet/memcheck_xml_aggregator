@@ -8,5 +8,4 @@ install:
 
 script:
   - python -m pytest
-  - pip install codecov
-  - codecov
+  - bash <(curl -s https://codecov.io/bash)
