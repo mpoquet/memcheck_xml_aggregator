@@ -9,3 +9,5 @@ install:
 
 script:
   - python -m pytest
+  - pip install codecov
+  - codecov
