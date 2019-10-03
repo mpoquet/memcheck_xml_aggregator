@@ -60,3 +60,9 @@ class Aggregation:
     def __repr__(self):
         return self.to_json()
 
+    def __eq__(self, other):
+        if isinstance(other, Aggregation):
+            return self.__dict__ == other.__dict__
+        else:
+            return False
+
